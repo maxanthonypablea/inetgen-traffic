@@ -17,7 +17,7 @@ redirect_only() {
 
 proxified_connection () {
     curl -s 'http://pubproxy.com/api/proxy?port=80&limit=100' | jq '.data[].ipPort' | tr -d '"' > proxies.txt
-#http_proxy=$(curl -s 'http://pubproxy.com/api/proxy?speed=25&port=80' | jq '.data[].ipPort' | tr -d '"')
+    #http_proxy=$(curl -s 'http://pubproxy.com/api/proxy?speed=25&port=80' | jq '.data[].ipPort' | tr -d '"')
     http_proxy=$(curl -s 'http://pubproxy.com/api/proxy?port=80' | jq '.data[].ipPort' | tr -d '"')
 
     while true :; do
